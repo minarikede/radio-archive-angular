@@ -1,0 +1,15 @@
+<div class="landing-page">
+  <p class="intro-text">
+    Válasszon a magyar közszolgálati rádióadók archívumából. 
+    Minden nap műsora visszahallgatható.
+  </p>
+  <div class="stations-grid">
+    <div 
+      *ngFor="let station of stations; let i = index" 
+      class="station-card"
+      [style.animation-delay]="(i * 0.05) + 's'"
+      (click)="selectStation(station.id)">
+      <h3 class="station-name">{{ station.name }}</h3>
+    </div>
+  </div>
+</div>

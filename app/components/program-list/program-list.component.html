@@ -1,0 +1,50 @@
+<div class="program-page">
+  <div class="program-header">
+    <button class="back-button" (click)="goBack()">← Vissza az állomásokhoz</button>
+    <h2 class="current-station">{{ station?.name }}</h2>
+    <div class="date-selector">
+      <label for="broadcast-date">Műsornap:</label>
+      <input 
+        type="date" 
+        id="broadcast-date" 
+        [(ngModel)]="selectedDate"
+        [max]="maxDate"
+        (change)="onDateChange()" />
+    </div>
+  </div>
+
+  <div class="program-content">
+    <div *ngIf="loading" class="loading">BETÖLTÉS...</div>
+
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+
+    <div *ngIf="!loading && !error && programs.length === 0" class="error-message">
+      Nincs elérhető műsor erre a napra.
+    </div>
+
+    <div *ngIf="!loading && !error && programs.length > 0" class="program-list">
+      <div 
+        *ngFor="let program of programs; let i = index" 
+        class="program-item"
+        [style.animation-delay]="(i * 0.03) + 's'">
+        <div class="program-time">
+          {{ program.start }} - {{ program.end }}
+        </div>
+        <div class="program-title">{{ program.title }}</div>
+        <div class="program-actions">
+          <button 
+            class="play-button"
+            [class.playing]="isPlaying(program)"
+            (click)="playProgram(program)">
+            {{ isPlaying(program) ? '⏸ Lejátszik' : '▶ Lejátszás' }}
+          </button>
+          <button 
+            class="download-button"
+            (click)="downloadProgram(program)">
+            ⬇ Letöltés
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
