@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "github-build": "ng build --configuration production --base-href 'git@github.com:minarikede/radio-archive-angular.git'",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/radio-archive-angular/browser --no-silent"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +28,8 @@
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular/cli": "^18.0.0",
     "@angular/compiler-cli": "^18.0.0",
-    "angular-cli-ghpages": "^2.0.0",
+    "angular-cli-ghpages": "^2.0.3",
     "typescript": "~5.4.0"
   }
 }
+
