@@ -90,8 +90,8 @@ export class RadioService {
   formatTime(timestamp: string): string {
     if (!timestamp) return '';
     const hours = timestamp.substring(0, 2);
-    const minutes = timestamp.substring(2, 4);
-    const seconds = timestamp.substring(4, 6);
+    const minutes = timestamp.substring(3, 5);
+    const seconds = timestamp.substring(6, 8);
     return `${hours}:${minutes}:${seconds}`;
   }
 
