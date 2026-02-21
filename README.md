@@ -132,19 +132,6 @@ Manages the persistent audio player state:
 - Smooth transitions on hover
 - Retro scanline texture overlay
 
-## API Integration
-
-The app integrates with MediaKlikk's public APIs:
-
-**Program Data:**
-```
-https://mediaklikk.hu/iface/broadcast/{date}/broadcast_{stationId}.xml
-```
-
-**Audio Streams:**
-```
-https://hangtar-cdn.connectmedia.hu/hangtar/{date}/{stationFile}.mp4?start={start}&end={end}
-```
 
 ## Browser Support
 
